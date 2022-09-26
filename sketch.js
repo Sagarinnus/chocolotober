@@ -36,7 +36,7 @@ function draw() {
   //var artober = loadStrings('assets/steps.txt');
   background(0);
   //textFont(titulo);
-  textSize(85);
+  textSize(45);
   text("ARTOBER 2021", width/2 - 450, 75);
   //textFont(subtitulo);
   text("One, Two, Three Kittens Prompt", width/2 - 450, 125);
@@ -50,7 +50,7 @@ function draw() {
     fill(255);
     textSize(25);
     //textFont(fuente);
-    text(str(i + 1) + ". " + artober, posicionesX[i], posicionesY[i] + 50);
+    text(str(i + 1) + ". " + artober[i], posicionesX[i], posicionesY[i] + 50);
     fill(255);
   }
 
