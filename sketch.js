@@ -19,10 +19,11 @@ function setup() {
   //player.attribute('src', base_url);
   //player.position(0,0); 
   myDictionary =  createStringDict('start', 'start');
+  item = day() - 1;
   links();
 }
 
-var item = day() - 1;
+var item = 0;
 var steps = 1;
 var xPos, yPos, stepsMax = 32.0;
 
