@@ -27,15 +27,13 @@ function setup() {
 var item = 0, steps = 1;
 var xPos, yPos, stepsMax = 35.0;
 
-/*
 let artober;
 function preload() {
   artober = loadStrings('assets/steps.txt');
 }
-*/
 
 function draw() {
-  var artober = loadStrings('assets/steps.txt');
+  //var artober = loadStrings('assets/steps.txt');
   background(0);
   //textFont(titulo);
   textSize(85);
