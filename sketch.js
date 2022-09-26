@@ -29,7 +29,7 @@ var xPos, yPos, stepsMax = 35.0;
 
 let artober;
 function preload() {
-  artober = loadStrings('assets/steps.txt');
+  artober = loadStrings('steps.txt');
 }
 
 function draw() {
