@@ -1,35 +1,34 @@
-let base_url = 
-"https://www.youtube.com/embed/RTGNU_o8EOY?autoplay=1&start=0";
-let base_url1 = 
-"https://www.youtube.com/embed/iwhx2gZ5fBE?&start=142&end=152&autoplay=1";
-var player;
-var posicionesX, posicionesY
+var posicionesX, posicionesY;
+let myDictionary;
 
 function setup() {
-  createCanvas(1366,768);
+  createCanvas(1600,1000);
   background(0);
   //createVideo(base_url);
   //player = select("#yt_video");
   posicionesX = new Array(31);
   posicionesX = [150, 150, 150, 150, 150, 150, 150, 150, 150, 150,
-    450, 450, 450, 450, 450, 450, 450, 450, 450, 450,
-    900, 900, 900, 900, 900, 900, 900, 900, 900, 900, -10];
+    150, 150, 150, 150, 150, 900, 900, 900, 900, 900,
+    900, 900, 900, 900, 900, 900, 900, 900, 900, 900, -200];
 
   posicionesY = new Array(31);
 
   posicionesY = [200, 250, 300, 350, 400, 450, 500, 550, 600, 650,
-    200, 250, 300, 350, 400, 450, 500, 550, 600, 650,
-    200, 250, 300, 350, 400, 450, 500, 550, 600, 650, 100];
+    700, 750, 800, 850, 900, 200, 250, 300, 350, 400, 
+    450, 500, 550, 600, 650, 700, 750, 800, 850, 900, 900];
   //player.attribute('src', base_url);
-  //player.position(0,0);  
+  //player.position(0,0); 
+  myDictionary =  createStringDict('start', 'start');
+  links();
 }
 
 var item = 0, steps = 1;
-var xPos, yPos, stepsMax = 35.0;
+var xPos, yPos, stepsMax = 32.0;
 
 let artober;
+let loadedJson
 function preload() {
-  artober = loadStrings('steps.txt');
+  artober = loadStrings('steps.dat');
 }
 
 function draw() {
@@ -37,56 +36,78 @@ function draw() {
   background(0);
   //textFont(titulo);
   textSize(45);
-  text("ARTOBER 2021", width/2 - 450, 75);
+  text("CHOCOLOTOBER 2022", width/2 - 250, 75);
   //textFont(subtitulo);
-  text("One, Two, Three Kittens Prompt", width/2 - 450, 125);
+  text("Tematica Musical", width/2 - 180, 125);
   fill(255);
   for (var i = 0; i < item; i++) {
     //textFont(titulo);
-    textSize(85);
-    text("ARTOBER 2021", width/2 - 450, 75);
+    textSize(45);
+    text("CHOCOLOTOBER 2022", width/2 - 250, 75);
     //textFont(subtitulo);
-    text("One, Two, Three Kittens Prompt", width/2 - 450, 125);
+    text("Tematica Musical", width/2 - 180, 125);
     fill(255);
     textSize(25);
     //textFont(fuente);
-    text(str(i + 1) + ". " + artober[i], posicionesX[i], posicionesY[i] + 50);
+    //link = createA(loadedJson[artober[i]], artober[i],'_blank');
+    //link.position(posicionesX[i], posicionesY[i] + 50);
+    text(str(i + 1) + ". " + artober[i], posicionesX[i] - 100, posicionesY[i] + 50);
     fill(255);
   }
 
   var value = artober[item];
-  xPos = lerp(-100, posicionesX[item], steps/stepsMax);
+  xPos = lerp(-100, posicionesX[item] -100, steps/stepsMax);
   yPos = lerp(100, posicionesY[item] + 50, steps/stepsMax);
   textSize(25);
   text(str(item +1) + ". " + value, xPos, yPos);
   fill(255);
 
   steps++;
-  if (steps >stepsMax) {
+  if (steps>stepsMax) {
     steps = 1;
     item++;
-    if (item>29) {
-      item = 30;
+    if (item>30) {
+      item = 31;
     }
   }
 }
 
-/*void iniciarLista() {
-  artober = new StringList();
-  artober.append("Mother Talzin"); artober.append("Roy Mustang"); artober.append("Kindred");
-  artober.append("Nyarlathotep"); artober.append("Azula"); artober.append("Ciri");
-  artober.append("Mulan"); artober.append("Entrenador Pokémon"); artober.append("Sylvanas");
-  artober.append("Sakura"); artober.append("Minerva McGonagall"); artober.append("Raven");
-  artober.append("Eri"); artober.append("Yoshi"); artober.append("Princesa Leia");
-  artober.append("Merida"); artober.append("Teemo"); artober.append("Cruella de vil");
-  artober.append("Zelda"); artober.append("Legolas"); artober.append("Rayman");
-  artober.append("Kidagakash"); artober.append("Wander"); artober.append("Ayesha");
-  artober.append("Marco"); artober.append("Heather Mason"); artober.append("Sauron");
-  artober.append("Impa"); artober.append("Wilbur Whateley"); artober.append("Kitana");
-  randomSeed(0);
-  artober.shuffle();
-}*/
+function doubleClicked() {
+  let d = day();
+  window.open(str(myDictionary.get(artober[d])));
+}
 
-function mousePressed () {
-	 
+function links() {
+  myDictionary.create('The Devil Within - Digital Daggers', 'https://www.youtube.com/watch?v=O3UuqCN1sQs');
+  myDictionary.create('Mascara - XG', 'https://www.youtube.com/watch?v=aVatpxBTfZs');
+  myDictionary.create('La llorona - Angela Aguilar', 'https://www.youtube.com/watch?v=h5z99EYHY4I');
+  myDictionary.create('Maniac - Stray Kids', 'https://www.youtube.com/watch?v=OvioeS1ZZ7o');
+  myDictionary.create('Therefor I Am - Bilie Eilish', 'https://www.youtube.com/watch?v=RUQl6YcMalg');
+  myDictionary.create('The Truth Beneath the Rose - Within Temptation', 'https://www.youtube.com/watch?v=9fLjMt41JU8');
+  myDictionary.create('La Geografia de mi Camino - Laura Pausini', 'https://www.youtube.com/watch?v=Ef6niKnp4vU');
+  myDictionary.create('Akai ito - Kobukuro/Yui Aragaki', 'https://www.youtube.com/watch?v=SqdwJkSSzhI');
+  myDictionary.create('Tras de mí - RBD', 'https://www.youtube.com/watch?v=Q1P04glmc_8');
+  myDictionary.create('Cactus - TWICE', 'https://www.youtube.com/watch?v=OTHG8RqPSKE');
+
+  myDictionary.create('Pharao - Freedom Call', 'https://www.youtube.com/watch?v=HPmxb4ITm0k');
+  myDictionary.create('Rocky Road to Dublin - The High Kings', 'https://www.youtube.com/watch?v=tMFvPXklQyU');
+  myDictionary.create('Only the Broken Hearts Make You Beautiful - Sonata Arctica', 'https://www.youtube.com/watch?v=rK88c-QAKbw');
+  myDictionary.create('Téir Abhaile Riú - Celtic woman', 'https://www.youtube.com/watch?v=EjyljC5fSeU');
+  myDictionary.create('In the Land of Twilight - Yuki Kajiura', 'https://www.youtube.com/watch?v=km6Mp-U3LmY');
+  myDictionary.create('El Trino del Diablo - Tartini', 'https://www.youtube.com/watch?v=ZkX8YyA4Wp4');
+  myDictionary.create('La Quemona - Mishelle Master Boys', 'https://www.youtube.com/watch?v=HkRqgxS6SgM');
+  myDictionary.create('Quizas - Afaz natural', 'https://www.youtube.com/watch?v=OkAG-lE7kpM');
+  myDictionary.create('Engel - Rammstein', 'https://www.youtube.com/watch?v=x2rQzv8OWEY');
+  myDictionary.create('The Vengeful Onne - Disturbed', 'https://www.youtube.com/watch?v=8nW-IPrzM1g');
+
+  myDictionary.create('The Asylum - Edguy', 'https://www.youtube.com/watch?v=CpGGBgOKwmk');
+  myDictionary.create('Armata Strigoi - Powerwolf', 'https://www.youtube.com/watch?v=3zx1ZtxUbGE');
+  myDictionary.create('The Boy Who Want To Be A Real Puppet - Sonata Arctica', 'https://www.youtube.com/watch?v=RbSMiyjFJeM');
+  myDictionary.create('To Mega Therion - Therion', 'https://www.youtube.com/watch?v=2ZQ0BsNi24A');
+  myDictionary.create('One for All, All for One - Nostradameus', 'https://www.youtube.com/watch?v=NqLVfxQnLfA');
+  myDictionary.create('Welcome To The Black Parade - My Chemical Romance', 'https://www.youtube.com/watch?v=RRKJiM9Njr8');
+  myDictionary.create('Symphony of Life - Avantasia', 'https://www.youtube.com/watch?v=Kdtfzv5X4Nc');
+  myDictionary.create('Mephistopheles Return - Trans-Siberian Orchestra', 'https://www.youtube.com/watch?v=ploxWruSqLE');
+  myDictionary.create('Perfect World - TWICE', 'https://www.youtube.com/watch?v=fmOEKOjyDxU');
+  myDictionary.create('Demons Are a Girl Best Friend - Powerwolf', 'https://www.youtube.com/watch?v=jhK2ev_O-pc');
 }
