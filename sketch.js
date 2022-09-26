@@ -22,7 +22,8 @@ function setup() {
   links();
 }
 
-var item = 0, steps = 1;
+var item = day() - 1;
+var steps = 1;
 var xPos, yPos, stepsMax = 32.0;
 
 let artober;
