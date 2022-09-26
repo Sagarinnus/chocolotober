@@ -74,7 +74,7 @@ function draw() {
 
 function doubleClicked() {
   let d = day();
-  window.open(str(myDictionary.get(artober[d])));
+  window.open(str(myDictionary.get(artober[d -1])));
 }
 
 function links() {
