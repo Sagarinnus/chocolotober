@@ -13,9 +13,9 @@ function setup() {
 
   posicionesY = new Array(32);
 
-  posicionesY = [200, 250, 300, 350, 400, 450, 500, 550, 600, 650,
+  posicionesY = [150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650,
     700, 750, 800, 850, 900, 200, 250, 300, 350, 400, 
-    450, 500, 550, 600, 650, 700, 750, 800, 850, 900, 950, 950];
+    450, 500, 550, 600, 650, 700, 750, 800, 850, 900, 900];
   //player.attribute('src', base_url);
   //player.position(0,0); 
   myDictionary =  createStringDict('start', 'start');
