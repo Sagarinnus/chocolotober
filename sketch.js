@@ -6,16 +6,16 @@ function setup() {
   background(0);
   //createVideo(base_url);
   //player = select("#yt_video");
-  posicionesX = new Array(31);
+  posicionesX = new Array(32);
   posicionesX = [150, 150, 150, 150, 150, 150, 150, 150, 150, 150,
     150, 150, 150, 150, 150, 900, 900, 900, 900, 900,
-    900, 900, 900, 900, 900, 900, 900, 900, 900, 900, -200];
+    900, 900, 900, 900, 900, 900, 900, 900, 900, 900, 900, -200];
 
-  posicionesY = new Array(31);
+  posicionesY = new Array(32);
 
   posicionesY = [200, 250, 300, 350, 400, 450, 500, 550, 600, 650,
     700, 750, 800, 850, 900, 200, 250, 300, 350, 400, 
-    450, 500, 550, 600, 650, 700, 750, 800, 850, 900, 900];
+    450, 500, 550, 600, 650, 700, 750, 800, 850, 900, 950, 950];
   //player.attribute('src', base_url);
   //player.position(0,0); 
   myDictionary =  createStringDict('start', 'start');
@@ -38,16 +38,16 @@ function draw() {
   background(0);
   //textFont(titulo);
   textSize(45);
-  text("CHOCOLOTOBER 2022", width/2 - 250, 75);
+  text("KALUTOBER 2024", width/2 - 250, 75);
   //textFont(subtitulo);
-  text("Tematica Musical", width/2 - 180, 125);
+  text("Tematica Videojuegos", width/2 - 180, 125);
   fill(255);
   for (var i = 0; i < item; i++) {
     //textFont(titulo);
     textSize(45);
-    text("CHOCOLOTOBER 2022", width/2 - 250, 75);
+    text("KALUTOBER 2024", width/2 - 250, 75);
     //textFont(subtitulo);
-    text("Tematica Musical", width/2 - 180, 125);
+    text("Tematica Videojuegos", width/2 - 180, 125);
     fill(255);
     textSize(25);
     //textFont(fuente);
@@ -75,8 +75,7 @@ function draw() {
 }
 
 function doubleClicked() {
-  let d = day();
-  window.open(str(myDictionary.get(artober[d -1])));
+
 }
 
 function links() {
